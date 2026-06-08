@@ -1,0 +1,96 @@
+/* FULL PAGE CENTER */
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  font-family: Arial, sans-serif;
+}
+
+/* CARD */
+.auth-card {
+  width: 360px;
+  padding: 25px;
+
+  background: #fff;
+  border-radius: 14px;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+
+  text-align: center;
+}
+
+/* TITLE */
+.auth-card h2 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.auth-card p {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+/* INPUTS */
+.auth-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  outline: none;
+  transition: 0.2s;
+}
+
+.auth-card input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74,144,226,0.3);
+}
+
+/* BUTTON */
+.auth-card button {
+  width: 100%;
+  padding: 10px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #4a90e2;
+  color: white;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.auth-card button:hover {
+  background: #2f6fc7;
+}
+
+.auth-card button:disabled {
+  background: #a0bde8;
+  cursor: not-allowed;
+}
+
+/* SWITCH TEXT */
+.switch {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #555;
+}
+
+.switch span {
+  color: #4a90e2;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.switch span:hover {
+  text-decoration: underline;
+}

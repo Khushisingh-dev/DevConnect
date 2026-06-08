@@ -1,0 +1,66 @@
+/* FULL PAGE CENTER */
+.notfound-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  font-family: Arial, sans-serif;
+}
+
+/* BOX */
+.notfound-box {
+  text-align: center;
+  padding: 30px;
+
+  background: #fff;
+  border-radius: 14px;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  width: 350px;
+}
+
+/* BIG 404 */
+.notfound-box h1 {
+  font-size: 70px;
+  color: #4a90e2;
+  margin: 0;
+}
+
+/* TITLE */
+.notfound-box h2 {
+  margin: 10px 0;
+  color: #333;
+}
+
+/* TEXT */
+.notfound-box p {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.notfound-box button {
+  padding: 10px 15px;
+  border: none;
+
+  background: #4a90e2;
+  color: white;
+
+  border-radius: 8px;
+  cursor: pointer;
+
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.notfound-box button:hover {
+  background: #2f6fc7;
+  transform: translateY(-2px);
+}
+
+.notfound-box button:active {
+  transform: scale(0.97);
+}

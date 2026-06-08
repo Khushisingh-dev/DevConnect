@@ -1,0 +1,101 @@
+/* PAGE CENTER */
+.edit-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f5f7fb;
+  font-family: Arial, sans-serif;
+}
+
+/* CARD */
+.edit-card {
+  width: 380px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.edit-card h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* INPUT */
+.edit-card input,
+.edit-card textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  outline: none;
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+/* FOCUS EFFECT */
+.edit-card input:focus,
+.edit-card textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74,144,226,0.3);
+}
+
+/* TEXTAREA HEIGHT */
+.edit-card textarea {
+  height: 90px;
+  resize: none;
+}
+
+/* BUTTON GROUP */
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* UPDATE BUTTON */
+.update-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+
+  background: #4a90e2;
+  color: white;
+
+  border-radius: 8px;
+  cursor: pointer;
+
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.update-btn:hover {
+  background: #2f6fc7;
+}
+
+/* DELETE BUTTON */
+.delete-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+
+  background: crimson;
+  color: white;
+
+  border-radius: 8px;
+  cursor: pointer;
+
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background: darkred;
+}
