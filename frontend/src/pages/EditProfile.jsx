@@ -25,7 +25,7 @@ function EditProfile() {
 
     try {
       await axios.put(
-        "http://localhost:5000/api/users/profile/update",
+        "https://devconnect-ztj7.onrender.com/api/users/profile/update",
         {
           username,
           bio,
@@ -72,7 +72,7 @@ function EditProfile() {
 
     try {
       await axios.delete(
-        "http://localhost:5000/api/users/profile/delete",
+        "https://devconnect-ztj7.onrender.com/api/users/profile/delete",
         {
           headers: {
             Authorization: `Bearer ${token}`,

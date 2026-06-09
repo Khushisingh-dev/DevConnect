@@ -11,7 +11,7 @@ function CommentSection({ postId }) {
   const fetchComments = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/comments/${postId}`
+        `https://devconnect-ztj7.onrender.com/api/comments/${postId}`
       );
       setComments(res.data);
     } catch (err) {
@@ -27,7 +27,7 @@ function CommentSection({ postId }) {
     if (!text.trim()) return;
 
     await axios.post(
-      `http://localhost:5000/api/comments/${postId}`,
+      `https://devconnect-ztj7.onrender.com/api/comments/${postId}`,
       { text },
       {
         headers: {
@@ -42,7 +42,7 @@ function CommentSection({ postId }) {
 
   const deleteComment = async (id) => {
     await axios.delete(
-      `http://localhost:5000/api/comments/${id}`,
+      `https://devconnect-ztj7.onrender.com/api/comments/${id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

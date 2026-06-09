@@ -14,7 +14,7 @@ function Home() {
   const fetchPosts = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/posts"
+        "https://devconnect-ztj7.onrender.com/api/posts"
       );
 
       setPosts(res.data);

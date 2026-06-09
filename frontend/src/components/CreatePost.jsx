@@ -12,7 +12,7 @@ function CreatePost({ refresh }) {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        "http://localhost:5000/api/posts",
+        "https://devconnect-ztj7.onrender.com/api/posts",
         { content },
         {
           headers: {

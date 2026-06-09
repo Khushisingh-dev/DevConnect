@@ -20,7 +20,7 @@ function PostCard({ post, refresh }) {
   const likePost = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/api/posts/like/${post._id}`,
+        `https://devconnect-ztj7.onrender.com/api/posts/like/${post._id}`,
         {},
         {
           headers: {
@@ -41,7 +41,7 @@ function PostCard({ post, refresh }) {
   const deletePost = async () => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/posts/${post._id}`,
+        `https://devconnect-ztj7.onrender.com/api/posts/${post._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

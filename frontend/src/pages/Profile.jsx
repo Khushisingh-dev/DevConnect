@@ -29,7 +29,7 @@ function Profile() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/users/${id}`
+          `https://devconnect-ztj7.onrender.com/api/users/${id}`
         );
 
         setUser(res.data.user);
@@ -58,7 +58,7 @@ function Profile() {
       if (!confirmDelete) return;
 
       await axios.delete(
-        `http://localhost:5000/api/posts/${postId}`,
+        `https://devconnect-ztj7.onrender.com/api/posts/${postId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
