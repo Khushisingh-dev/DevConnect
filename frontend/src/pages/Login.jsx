@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 import Navbar from "../components/Navbar";
+import {LogIn} from "lucide-react";
 
 function Login() {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ function Login() {
         JSON.stringify(res.data.user)
       );
 
-      alert("Login Successful 🚀");
+      alert("Login Successful");
 
       // redirect to home feed
       navigate("/home");
@@ -50,8 +51,8 @@ function Login() {
     <div className="auth-container">
       <div className="auth-card">
 
-        <h2>Welcome Back 👋</h2>
-        <p>Login to continue DevConnect</p>
+      <h2>Welcome Back <LogIn /></h2>
+        <p> Access your developer network and continue building meaningful connections.</p>
 
         <form onSubmit={handleLogin}>
           <input

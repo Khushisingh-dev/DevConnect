@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Register.css";
 import Navbar from "../components/Navbar";
+import { Rocket } from "lucide-react";
 
 function Register() {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ function Register() {
     <div className="auth-container">
       <div className="auth-card">
 
-        <h2>Create Account 🚀</h2>
+        <h2>Create Account <Rocket/></h2>
         <p>Join DevConnect and start sharing</p>
 
         <form onSubmit={handleRegister}>
