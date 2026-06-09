@@ -11,13 +11,16 @@ const userRoutes = require("./routes/userRoutes");
 
 dotenv.config();
 
-connectDB();
-
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://dev-connect-ks.vercel.app/",
+  credentials: true
+}));
+
 app.use(express.json());
 
+// routes
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
@@ -29,6 +32,19 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server Running On Port ${PORT}`);
-});
+// 🔥 FIRST connect DB, then start server
+const startServer = async () => {
+  try {
+    await connectDB();
+    console.log("MongoDB Connected");
+
+    app.listen(PORT, () => {
+      console.log(`Server Running On Port ${PORT}`);
+    });
+
+  } catch (err) {
+    console.log("DB Connection Failed:", err);
+  }
+};
+
+startServer();
