@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import {User} from "lucide-react";
 
 function Navbar({ page = "" }) {
   const navigate = useNavigate();
@@ -72,7 +73,7 @@ function Navbar({ page = "" }) {
               onClick={myProfile}
               title="My Profile"
             >
-              👤
+              <User/>
             </button>
 
             <button

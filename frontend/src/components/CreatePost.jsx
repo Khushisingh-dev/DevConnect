@@ -30,11 +30,11 @@ function CreatePost({ refresh }) {
 
   return (
     <div className="create-post">
-      <h3>✨ Create Post</h3>
+      <h3>Share Something With The Community</h3>
 
       <textarea
         value={content}
-        placeholder="What's on your mind?"
+        placeholder="Share an idea, project, achievement, or anything you're working on..."
         onChange={(e) => setContent(e.target.value)}
       />
 

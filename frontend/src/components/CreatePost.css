@@ -1,57 +1,128 @@
-/* MAIN BOX */
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap');
+
 .create-post {
   background: #ffffff;
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid #e6e6e6;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  font-family: Arial, sans-serif;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+
+  padding: 28px;
+  margin-bottom: 30px;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.05);
+
+  font-family: "Urbanist", sans-serif;
+
+  transition: all 0.3s ease;
 }
 
-/* TITLE */
+.create-post:hover {
+  box-shadow:
+    0 18px 40px rgba(37,99,235,0.08);
+}
+
 .create-post h3 {
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #333;
+  margin-bottom: 18px;
+
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  color: #0f172a;
 }
 
 /* TEXTAREA */
+
 .create-post textarea {
   width: 100%;
-  min-height: 90px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  resize: none;
-  outline: none;
-  font-size: 14px;
-  transition: 0.2s;
+  min-height: 140px;
+
+  resize: vertical;
+
+  padding: 18px;
+
+  border: 2px solid #e2e8f0;
+  border-radius: 18px;
+
+  background: #f8fafc;
+
+  font-size: 1rem;
+  font-family: "Urbanist", sans-serif;
+
+  color: #334155;
+
+  transition: all 0.3s ease;
 }
 
 .create-post textarea:focus {
-  border-color: #4a90e2;
-  box-shadow: 0 0 5px rgba(74,144,226,0.3);
+  outline: none;
+
+  border-color: #2563eb;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 5px rgba(37,99,235,0.10);
+}
+
+.create-post textarea::placeholder {
+  color: #94a3b8;
 }
 
 /* BUTTON */
+
 .create-post button {
-  margin-top: 10px;
-  padding: 10px 15px;
+  margin-top: 18px;
+
+  padding: 12px 28px;
+
   border: none;
-  background: #4a90e2;
+  border-radius: 12px;
+
+  background: #2563eb;
   color: white;
-  font-weight: bold;
-  border-radius: 8px;
+
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Urbanist", sans-serif;
+
   cursor: pointer;
-  transition: 0.2s;
+
+  transition: all 0.3s ease;
 }
 
 .create-post button:hover {
-  background: #2f6fc7;
+  background: #1d4ed8;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(37,99,235,0.25);
 }
 
-/* Disabled feel (optional UX improvement) */
 .create-post button:active {
-  transform: scale(0.98);
+  transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .create-post {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .create-post h3 {
+    font-size: 1.2rem;
+  }
+
+  .create-post textarea {
+    min-height: 120px;
+    padding: 15px;
+  }
+
+  .create-post button {
+    width: 100%;
+  }
 }

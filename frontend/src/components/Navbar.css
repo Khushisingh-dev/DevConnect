@@ -105,8 +105,8 @@
   border: none;
   border-radius: 50%;
 
-  background: #2563eb;
-  color: white;
+  background: #bcd2ff;
+  color: rgb(0, 0, 0);
 
   font-size: 18px;
 
@@ -117,7 +117,7 @@
 
 .profile-btn:hover {
   transform: scale(1.05);
-  background: #1d4ed8;
+  background: #87a7ff;
 }
 
 /* Mobile */

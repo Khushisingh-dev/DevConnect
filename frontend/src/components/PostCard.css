@@ -1,92 +1,165 @@
-/* MAIN CARD */
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap');
+
 .post-card {
   background: #ffffff;
-  border: 1px solid #e6e6e6;
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 15px;
 
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  font-family: Arial, sans-serif;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
 
-  transition: 0.2s;
+  padding: 24px;
+  margin-bottom: 25px;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.05);
+
+  transition: all 0.3s ease;
+
+  font-family: "Urbanist", sans-serif;
 }
 
 .post-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 20px 40px rgba(37,99,235,0.08);
 }
 
-/* HEADER */
+/* =======================
+   HEADER
+======================= */
+
 .post-header {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 8px;
+  gap: 10px;
+
+  margin-bottom: 18px;
 }
 
 .post-header h4 {
-  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+
+  color: #0f172a;
+
   cursor: pointer;
-  color: #4a90e2;
-  font-size: 15px;
+  transition: 0.3s;
 }
 
 .post-header h4:hover {
-  text-decoration: underline;
+  color: #2563eb;
 }
 
 .dot {
-  font-size: 18px;
-  color: #aaa;
+  color: #94a3b8;
+  font-size: 1.2rem;
 }
 
-/* CONTENT */
+/* =======================
+   CONTENT
+======================= */
+
 .post-content {
-  font-size: 14px;
-  color: #333;
-  margin: 10px 0;
-  line-height: 1.4;
+  color: #334155;
+
+  font-size: 1rem;
+  line-height: 1.8;
+
+  margin-bottom: 22px;
+
+  word-break: break-word;
 }
 
-/* ACTIONS */
+/* =======================
+   ACTIONS
+======================= */
+
 .post-actions {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  margin-top: 20px;
 }
 
-/* BUTTONS */
 .post-actions button {
-  padding: 6px 10px;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
 
-  font-size: 13px;
+  padding: 10px 18px;
+
+  border-radius: 12px;
+
+  font-size: 0.95rem;
   font-weight: 600;
 
-  background: #f1f3f5;
-  color: #333;
-
-  transition: 0.2s;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.post-actions button:hover {
-  background: #4a90e2;
-  color: white;
-  transform: translateY(-1px);
+/* Like Button */
+
+.post-actions button:nth-child(1) {
+  background: #fee2e2;
+  color: #dc2626;
 }
 
-.post-actions button:active {
-  transform: scale(0.97);
+.post-actions button:nth-child(1):hover {
+  background: #fecaca;
 }
 
-/* LIKE BUTTON SPECIAL */
-.post-actions button:first-child {
-  color: #e63946;
+/* View Profile Button */
+
+.post-actions button:nth-child(2) {
+  background: #dbeafe;
+  color: #2563eb;
 }
 
-.post-actions button:first-child:hover {
-  background: #ffe3e3;
-  color: #e63946;
+.post-actions button:nth-child(2):hover {
+  background: #bfdbfe;
+}
+
+/* Delete Button */
+
+.post-actions button:nth-child(3) {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.post-actions button:nth-child(3):hover {
+  background: #fee2e2;
+}
+
+/* =======================
+   COMMENT SECTION
+======================= */
+
+.comment-section {
+  margin-top: 25px;
+  padding-top: 20px;
+
+  border-top: 1px solid #e2e8f0;
+}
+
+/* =======================
+   MOBILE
+======================= */
+
+@media (max-width: 768px) {
+
+  .post-card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .post-content {
+    font-size: 0.95rem;
+  }
+
+  .post-actions {
+    flex-direction: column;
+  }
+
+  .post-actions button {
+    width: 100%;
+  }
 }

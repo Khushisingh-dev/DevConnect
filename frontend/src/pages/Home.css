@@ -1,45 +1,137 @@
-/* FULL PAGE BACKGROUND */
+@import url('https://fonts.googleapis.com/css2?family=Prata&family=Urbanist:wght@300;400;500;600;700;800&display=swap');
+
 .home-container {
-  min-height: 100vh;
-  background: #f5f7fb;
-  display: flex;
-  justify-content: center;
-  font-family: Arial, sans-serif;
+  min-height: calc(100vh - 70px);
+  padding: 40px 20px 80px;
+
+  background:
+    radial-gradient(circle at top left, #dbeafe, transparent 25%),
+    radial-gradient(circle at bottom right, #bfdbfe, transparent 25%),
+    #f8fafc;
 }
 
-/* FEED COLUMN */
 .home-feed {
-  width: 600px;
-  padding: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* TITLE */
 .title {
+  font-family: "Prata", serif;
+  font-size: 3rem;
   text-align: center;
-  margin-bottom: 15px;
-  font-size: 22px;
-  color: #333;
+  color: #0f172a;
+
+  margin-bottom: 12px;
 }
 
-/* LOADING TEXT */
-.loading {
-  text-align: center;
-  color: #888;
-  margin-top: 20px;
+.title::after {
+  content: "";
+  display: block;
+
+  width: 90px;
+  height: 4px;
+
+  background: #2563eb;
+
+  margin: 14px auto 0;
+  border-radius: 999px;
 }
 
-/* EMPTY STATE */
+/* Loading */
+
+.loading,
 .empty {
   text-align: center;
-  color: #aaa;
-  margin-top: 20px;
-  font-size: 14px;
+
+  margin-top: 40px;
+
+  font-size: 1.05rem;
+  color: #64748b;
+
+  font-family: "Urbanist", sans-serif;
 }
 
-/* RESPONSIVE */
-@media (max-width: 650px) {
-  .home-feed {
-    width: 100%;
-    padding: 10px;
+/* Feed Layout */
+
+.posts-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Create Post Section */
+
+.create-post-container {
+  background: white;
+
+  padding: 25px;
+  margin-bottom: 30px;
+
+  border-radius: 24px;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Generic Card Styling */
+
+.post-card {
+  background: white;
+
+  padding: 24px;
+
+  border-radius: 24px;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.05);
+
+  transition: all .3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 40px rgba(37,99,235,0.08);
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .home-container {
+    padding: 25px 15px 50px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .post-card {
+    padding: 18px;
   }
 }
