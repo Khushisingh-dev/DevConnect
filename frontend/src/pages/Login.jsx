@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
+import Navbar from "../components/Navbar";
 
 function Login() {
   const navigate = useNavigate();
@@ -43,6 +44,9 @@ function Login() {
   };
 
   return (
+    <>
+    <Navbar />
+
     <div className="auth-container">
       <div className="auth-card">
 
@@ -78,7 +82,9 @@ function Login() {
 
       </div>
     </div>
+    </>
   );
 }
+
 
 export default Login;

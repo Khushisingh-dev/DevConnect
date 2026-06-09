@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Register.css";
+import Navbar from "../components/Navbar";
 
 function Register() {
   const navigate = useNavigate();
@@ -40,6 +41,8 @@ function Register() {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="auth-container">
       <div className="auth-card">
 
@@ -82,6 +85,7 @@ function Register() {
 
       </div>
     </div>
+    </>
   );
 }
 

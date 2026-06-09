@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({ page = "" }) {
   const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
 
-  // 🔥 SAFE PARSE (IMPORTANT FIX)
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const user = JSON.parse(
+    localStorage.getItem("user") || "{}"
+  );
 
   const logout = () => {
     const confirmLogout = window.confirm(
@@ -21,51 +22,69 @@ function Navbar() {
   };
 
   const myProfile = () => {
-    if (token && user && user._id) {
+    if (user?._id) {
       navigate(`/profile/${user._id}`);
     } else {
-      console.log("User not found in localStorage");
+      console.log("User not found");
+    }
+  };
+
+  const goHome = () => {
+    if (token) {
+      navigate("/home");
+    } else {
+      navigate("/");
     }
   };
 
   return (
-    <div className="navbar">
-
+    <nav className="navbar">
       {/* LOGO */}
-      <h2 className="logo" onClick={() => navigate("/home")}>
+      <h2 className="logo" onClick={goHome}>
         DevConnect
       </h2>
 
       <div className="nav-right">
-
-        {/* GUEST */}
-        {!token && (
+        {/* LANDING PAGE GUEST BUTTONS */}
+        {!token && page === "landing" && (
           <>
-            <button onClick={() => navigate("/login")}>
+            <button
+              className="nav-btn"
+              onClick={() => navigate("/login")}
+            >
               Login
             </button>
 
-            <button onClick={() => navigate("/register")}>
+            <button
+              className="nav-btn signup-btn"
+              onClick={() => navigate("/register")}
+            >
               Sign Up
             </button>
           </>
         )}
 
-        {/* LOGGED IN */}
+        {/* LOGGED IN USER */}
         {token && (
           <>
-            <button className="profile-btn" onClick={myProfile}>
+            <button
+              className="profile-btn"
+              onClick={myProfile}
+              title="My Profile"
+            >
               👤
             </button>
 
-            <button onClick={logout}>
+            <button
+              className="nav-btn logout-btn"
+              onClick={logout}
+            >
               Logout
             </button>
           </>
         )}
-
       </div>
-    </div>
+    </nav>
   );
 }
 
