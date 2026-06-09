@@ -101,7 +101,7 @@
 .profile-btn {
   width: 42px;
   height: 42px;
-   display: inline-flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
@@ -132,6 +132,10 @@
 
   .logo {
     font-size: 1.5rem;
+  }
+
+  .nav-right {
+    gap: 5px;
   }
 
   .nav-btn {
