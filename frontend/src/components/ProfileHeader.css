@@ -1,41 +1,86 @@
-/* MAIN CONTAINER */
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap');
+
 .profile-header {
-  display: flex;
-  align-items: center;
-  gap: 18px;
+  width: 100%;
+  max-width: 900px;
+
+  margin: 20px auto;
 
   padding: 20px;
-  margin-bottom: 20px;
 
-  background: #ffffff;
-  border: 1px solid #e6e6e6;
-  border-radius: 12px;
+  background: white;
 
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  font-family: Arial, sans-serif;
+  border: 1px solid #e2e8f0;
+
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  font-family: "Urbanist", sans-serif;
+
+  transition: 0.3s ease;
+}
+
+.profile-header:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(37,99,235,0.08);
 }
 
 /* PROFILE IMAGE */
+
 .profile-img {
   width: 90px;
   height: 90px;
+
   border-radius: 50%;
+
   object-fit: cover;
 
-  border: 3px solid #4a90e2;
-  padding: 2px;
-  background: white;
+  border: 3px solid #2563eb;
+
+  box-shadow: 0 8px 20px rgba(37,99,235,0.2);
 }
 
-/* TEXT SECTION */
+/* INFO */
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .profile-info h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  color: #0f172a;
+
   margin: 0;
-  font-size: 20px;
-  color: #333;
 }
 
 .profile-info p {
-  margin: 5px 0 0;
-  font-size: 14px;
-  color: #666;
+  font-size: 0.95rem;
+
+  color: #64748b;
+
+  line-height: 1.4;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 80px;
+    height: 80px;
+  }
 }

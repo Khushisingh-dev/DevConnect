@@ -31,7 +31,7 @@ function Landing() {
 
           <h1>
             The Place Where
-            <span> Developers Build Their Future</span>
+            <span> Developers Share Ideas & Learn Together</span>
           </h1>
 
           <p className="hero-text">

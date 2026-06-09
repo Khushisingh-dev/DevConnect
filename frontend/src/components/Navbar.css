@@ -101,6 +101,9 @@
 .profile-btn {
   width: 42px;
   height: 42px;
+   display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   border: none;
   border-radius: 50%;

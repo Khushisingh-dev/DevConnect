@@ -1,101 +1,165 @@
-/* PAGE CENTER */
-.edit-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap');
 
-  background: #f5f7fb;
-  font-family: Arial, sans-serif;
+.edit-container {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+
+  font-family: "Urbanist", sans-serif;
+
+  padding: 20px;
 }
 
 /* CARD */
-.edit-card {
-  width: 380px;
-  background: #fff;
-  padding: 25px;
-  border-radius: 14px;
 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+.edit-card {
+  width: 100%;
+  max-width: 450px;
+
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 28px;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+
+  border: 1px solid #e2e8f0;
+
+  transition: 0.3s ease;
+}
+
+.edit-card:hover {
+  transform: translateY(-4px);
 }
 
 /* TITLE */
+
 .edit-card h2 {
-  margin-bottom: 15px;
-  color: #333;
+  text-align: center;
+
+  font-size: 1.5rem;
+
+  font-weight: 700;
+
+  margin-bottom: 20px;
+
+  color: #0f172a;
 }
 
 /* INPUT */
+
 .edit-card input,
 .edit-card textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
 
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  margin-bottom: 15px;
 
-  outline: none;
-  font-size: 14px;
+  padding: 12px 14px;
 
-  transition: 0.2s;
+  border-radius: 12px;
+
+  border: 1px solid #e2e8f0;
+
+  background: #f8fafc;
+
+  font-size: 0.95rem;
+
+  transition: 0.3s;
 }
 
-/* FOCUS EFFECT */
+.edit-card textarea {
+  resize: none;
+  height: 100px;
+}
+
 .edit-card input:focus,
 .edit-card textarea:focus {
-  border-color: #4a90e2;
-  box-shadow: 0 0 5px rgba(74,144,226,0.3);
-}
+  outline: none;
 
-/* TEXTAREA HEIGHT */
-.edit-card textarea {
-  height: 90px;
-  resize: none;
+  border-color: #2563eb;
+
+  background: #fff;
+
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
 }
 
 /* BUTTON GROUP */
+
 .btn-group {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+
+  margin-top: 10px;
 }
 
 /* UPDATE BUTTON */
+
 .update-btn {
   flex: 1;
-  padding: 10px;
+
+  padding: 12px;
+
   border: none;
 
-  background: #4a90e2;
+  border-radius: 12px;
+
+  background: #2563eb;
+
   color: white;
 
-  border-radius: 8px;
+  font-weight: 600;
+
   cursor: pointer;
 
-  font-weight: bold;
-  transition: 0.2s;
+  transition: 0.3s ease;
 }
 
 .update-btn:hover {
-  background: #2f6fc7;
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.update-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* DELETE BUTTON */
+
 .delete-btn {
   flex: 1;
-  padding: 10px;
+
+  padding: 12px;
+
   border: none;
 
-  background: crimson;
+  border-radius: 12px;
+
+  background: #ef4444;
+
   color: white;
 
-  border-radius: 8px;
+  font-weight: 600;
+
   cursor: pointer;
 
-  font-weight: bold;
-  transition: 0.2s;
+  transition: 0.3s ease;
 }
 
 .delete-btn:hover {
-  background: darkred;
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+  .btn-group {
+    flex-direction: column;
+  }
 }

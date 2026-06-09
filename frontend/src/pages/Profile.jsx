@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -8,6 +6,7 @@ import Navbar from "../components/Navbar";
 import ProfileHeader from "../components/ProfileHeader";
 
 import "./Profile.css";
+import { House, UserPen, Trash } from "lucide-react";
 
 function Profile() {
   const { id } = useParams();
@@ -23,6 +22,9 @@ function Profile() {
 
   const isOwner = loggedUser?._id === id;
 
+  // =========================
+  // FETCH USER + POSTS
+  // =========================
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -42,6 +44,9 @@ function Profile() {
     fetchData();
   }, [id]);
 
+  // =========================
+  // DELETE POST
+  // =========================
   const deletePost = async (postId) => {
     try {
       const token = localStorage.getItem("token");
@@ -61,10 +66,8 @@ function Profile() {
         }
       );
 
-      setPosts((prevPosts) =>
-        prevPosts.filter(
-          (post) => post._id !== postId
-        )
+      setPosts((prev) =>
+        prev.filter((post) => post._id !== postId)
       );
     } catch (err) {
       console.log(err);
@@ -72,80 +75,101 @@ function Profile() {
     }
   };
 
+  // =========================
+  // FORMAT DATE
+  // =========================
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+
+    return date.toLocaleString("en-IN", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+
+  // =========================
+  // LOADING STATE
+  // =========================
   if (loading) {
-    return (
-      <div className="profile-loading">
-        Loading...
-      </div>
-    );
+    return <div className="profile-loading">Loading...</div>;
   }
 
   if (!user) {
-    return (
-      <div className="profile-loading">
-        User not found
-      </div>
-    );
+    return <div className="profile-loading">User not found</div>;
   }
 
   return (
     <div className="profile-container">
+
       <Navbar />
 
-        {isOwner && (
-  <div className="owner-actions">
+      {/* OWNER ACTIONS */}
+      {isOwner && (
+        <div className="owner-actions">
 
-    <button
-      className="home-btn"
-      onClick={() => navigate("/home")}
-    >
-      🏠 Go To Home
-    </button>
+          <button
+            className="home-btn"
+            onClick={() => navigate("/home")}
+          >
+            <House size={20} /> Go To Home
+          </button>
 
-    <button
-      className="edit-btn"
-      onClick={() => navigate("/edit-profile")}
-    >
-      ✏️ Edit Profile
-    </button>
+          <button
+            className="edit-btn"
+            onClick={() => navigate("/edit-profile")}
+          >
+            <UserPen size={20} /> Edit Profile
+          </button>
 
-  </div>
-)}
+        </div>
+      )}
+
       <div className="profile-content">
-        <ProfileHeader user={user} />
 
+        <ProfileHeader user={user} />
 
         <h3 className="posts-title">
           Posts ({posts.length})
         </h3>
 
         {posts.length === 0 ? (
-          <p className="no-posts">
-            No posts yet
-          </p>
+          <p className="no-posts">No posts yet</p>
         ) : (
           <div className="posts-grid">
-            {posts.map((post) => (
-              <div
-                key={post._id}
-                className="post-card"
-              >
-                <p>{post.content}</p>
 
+            {posts.map((post) => (
+              <div key={post._id} className="post-card">
+
+                {/* CONTENT */}
+                <p className="post-content">
+                  {post.content}
+                </p>
+
+                {/* DATE & TIME */}
+                <p className="post-time">
+                  {post.createdAt &&
+                    formatDate(post.createdAt)}
+                </p>
+
+                {/* DELETE BUTTON */}
                 {isOwner && (
                   <button
                     className="post-delete-btn"
-                    onClick={() =>
-                      deletePost(post._id)
-                    }
+                    onClick={() => deletePost(post._id)}
                   >
-                    🗑 Delete Post
+                    <Trash size={18} /> Delete Post
                   </button>
                 )}
+
               </div>
             ))}
+
           </div>
         )}
+
       </div>
     </div>
   );

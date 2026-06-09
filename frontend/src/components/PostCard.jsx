@@ -1,87 +1,3 @@
-// import axios from "axios";
-// import { useNavigate } from "react-router-dom";
-// import "./PostCard.css";
-// import CommentSection from "./CommentSection";
-
-// function PostCard({ post, refresh }) {
-//   const navigate = useNavigate();
-
-//   const token = localStorage.getItem("token");
-
-//   const likePost = async () => {
-//     await axios.put(
-//       `http://localhost:5000/api/posts/like/${post._id}`,
-//       {},
-//       {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       }
-//     );
-
-//     refresh();
-//   };
-
-//   const deletePost = async () => {
-//     await axios.delete(
-//       `http://localhost:5000/api/posts/${post._id}`,
-//       {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       }
-//     );
-
-//     refresh();
-//   };
-
-//   return (
-//     <div className="post-card">
-//       {/* USER HEADER */}
-//       <div className="post-header">
-//         <h4
-//           onClick={() =>
-//             navigate(`/profile/${post.user._id}`)
-//           }
-//         >
-//           {/* {post.user.username} */}
-//           {post.user?.username || "Deleted User"}
-//         </h4>
-
-//         <span className="dot">•</span>
-//       </div>
-
-//       {/* CONTENT */}
-//       <p className="post-content">{post.content}</p>
-
-//  {/* COMMENTS */}
-//         <CommentSection postId={post._id} />
-        
-//       {/* ACTIONS */}
-//       <div className="post-actions">
-//         <button onClick={likePost}>
-//           ❤️ {post.likes.length}
-//         </button>
-
-//         <button
-//           onClick={() =>
-//             navigate(`/profile/${post.user._id}`)
-//           }
-//         >
-//           View
-//         </button>
-
-//         <button onClick={deletePost}>
-//           Delete
-//         </button>
-
-//     </div>
-//       </div>
-//   );
-// }
-
-// export default PostCard;
-
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./PostCard.css";
@@ -92,15 +8,15 @@ function PostCard({ post, refresh }) {
 
   const token = localStorage.getItem("token");
 
-  // ✅ SAFE USER PARSE
   const loggedUser = JSON.parse(
     localStorage.getItem("user") || "{}"
   );
 
-  // ✅ OWNER CHECK (IMPORTANT FIX)
-  const isOwner =
-    loggedUser?._id === post.user?._id;
+  const isOwner = loggedUser?._id === post?.user?._id;
 
+  // =========================
+  // LIKE POST
+  // =========================
   const likePost = async () => {
     try {
       await axios.put(
@@ -119,6 +35,9 @@ function PostCard({ post, refresh }) {
     }
   };
 
+  // =========================
+  // DELETE POST
+  // =========================
   const deletePost = async () => {
     try {
       await axios.delete(
@@ -137,46 +56,84 @@ function PostCard({ post, refresh }) {
     }
   };
 
+  // =========================
+  // PROFILE IMAGE LOGIC
+  // =========================
+  const profileImage =
+    post?.user?.profilePic ||
+    `https://ui-avatars.com/api/?name=${
+      post?.user?.username || "User"
+    }&background=6b7280&color=fff&rounded=true`;
+
+  // =========================
+  // FORMAT DATE
+  // =========================
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+
+    return date.toLocaleString("en-IN", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+
   return (
     <div className="post-card">
 
       {/* USER HEADER */}
       <div className="post-header">
+
+        {/* AVATAR */}
+        <img
+          src={profileImage}
+          alt="profile"
+          className="post-avatar"
+          onClick={() =>
+            navigate(`/profile/${post?.user?._id}`)
+          }
+        />
+
+        {/* USERNAME */}
         <h4
           onClick={() =>
-            navigate(`/profile/${post.user?._id}`)
+            navigate(`/profile/${post?.user?._id}`)
           }
         >
-          {post.user?.username || "Deleted User"}
+          {post?.user?.username || "Deleted User"}
         </h4>
 
         <span className="dot">•</span>
       </div>
 
       {/* CONTENT */}
-      <p className="post-content">{post.content}</p>
+      <p className="post-content">{post?.content}</p>
+
+      {/* DATE & TIME */}
+      <p className="post-time">
+        {post?.createdAt && formatDate(post.createdAt)}
+      </p>
 
       {/* COMMENTS */}
-      <CommentSection postId={post._id} />
+      <CommentSection postId={post?._id} />
 
       {/* ACTIONS */}
       <div className="post-actions">
 
-        {/* LIKE */}
         <button onClick={likePost}>
-          ❤️ {post.likes?.length || 0}
+          ❤️ {post?.likes?.length || 0}
         </button>
 
-        {/* VIEW PROFILE */}
-        <button
+        {/* <button
           onClick={() =>
-            navigate(`/profile/${post.user?._id}`)
+            navigate(`/profile/${post?.user?._id}`)
           }
         >
           View
-        </button>
+        </button> */}
 
-        {/* DELETE (ONLY OWNER) */}
         {isOwner && (
           <button onClick={deletePost}>
             Delete
@@ -184,6 +141,7 @@ function PostCard({ post, refresh }) {
         )}
 
       </div>
+
     </div>
   );
 }

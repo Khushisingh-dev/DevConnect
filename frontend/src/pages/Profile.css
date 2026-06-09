@@ -1,159 +1,210 @@
-/* PAGE WRAPPER */
 .profile-container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
+  min-height: 100vh;
 
-  font-family: Arial, sans-serif;
+  background: #f8fafc;
+
+  font-family: "Urbanist", sans-serif;
+
+  padding-bottom: 40px;
 }
 
-/* EDIT BUTTON */
-.edit-btn {
-  margin-top: 15px;
-  padding: 8px 14px;
-
-  border: none;
-  border-radius: 8px;
-
-  background: #4a90e2;
-  color: white;
-
-  cursor: pointer;
-  font-weight: bold;
-
-  transition: 0.2s;
-}
-
-.edit-btn:hover {
-  background: #2f6fc7;
-}
-
-/* POSTS TITLE */
-.posts-title {
-  margin-top: 25px;
-  font-size: 18px;
-  color: #333;
-}
-
-/* NO POSTS */
-.no-posts {
-  color: #888;
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-/* POSTS GRID */
-.posts-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-
-  margin-top: 10px;
-}
-
-/* POST CARD */
-.post-card {
-  padding: 12px;
-  background: #fff;
-
-  border: 1px solid #e6e6e6;
-  border-radius: 10px;
-
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-
-  transition: 0.2s;
-}
-
-.post-card:hover {
-  transform: translateY(-2px);
-}
-
-.owner-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-/* edit button */
-.edit-btn {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 8px;
-
-  background: #4a90e2;
-  color: white;
-
-  cursor: pointer;
-}
-
-/* delete button */
-.delete-btn {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 8px;
-
-  background: crimson;
-  color: white;
-
-  cursor: pointer;
-}
-
-.profile-content {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 20px;
-}
-
-.owner-actions {
-  margin: 20px 0;
-}
-
-.post-delete-btn {
-  width: 100%;
-  margin-top: 12px;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background: #ef4444;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.post-delete-btn:hover {
-  opacity: 0.9;
-}
+/* LOADING */
 
 .profile-loading {
-  text-align: center;
-  margin-top: 100px;
-  font-size: 20px;
-}
+  height: 60vh;
 
-.home-btn {
-  padding: 10px 18px;
-  border: none;
-  border-radius: 8px;
-  background: #2563eb;
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.2rem;
   font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
+
+  color: #475569;
 }
 
-.home-btn:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
+/* OWNER ACTION BAR */
 
 .owner-actions {
   display: flex;
   gap: 12px;
+
+  justify-content: center;
+
   margin: 20px 0;
 }
+
+.home-btn,
+.edit-btn {
+  padding: 10px 18px;
+
+  border-radius: 12px;
+
+  border: none;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+/* HOME BUTTON */
+
+.home-btn {
+  background: #0f172a;
+  color: white;
+  gap: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-btn:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+}
+
+/* EDIT BUTTON */
+
+.edit-btn {
+  background: #2563eb;
+  color: white;
+  gap: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* PROFILE CONTENT */
+
+.profile-content {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+
+  padding: 20px;
+}
+
+/* POSTS TITLE */
+
+.posts-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+
+  margin: 25px 0 15px;
+
+  color: #0f172a;
+}
+
+/* GRID */
+
+.posts-grid {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+/* POST CARD */
+
+.post-card {
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  padding: 16px 18px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+
+  transition: 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.08);
+}
+
+/* POST TEXT */
+
+.post-card p {
+  font-size: 1rem;
+
+  color: #334155;
+
+  line-height: 1.5;
+}
+
+/* DELETE BUTTON */
+
+.post-delete-btn {
+  margin-top: 12px;
+  gap: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 14px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #ef4444;
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.post-delete-btn:hover {
+  background: #dc2626;
+  transform: scale(1.05);
+}
+
+/* EMPTY STATE */
+
+.no-posts {
+  text-align: center;
+
+  color: #94a3b8;
+
+  padding: 20px;
+}
+
+.post-time {
+  font-size: 15px;
+  color: #888;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  font-family: "Prata", serif;
+}
+
 /* RESPONSIVE */
-@media (max-width: 600px) {
-  .profile-container {
-    padding: 10px;
+
+@media (max-width: 768px) {
+  .profile-content {
+    padding: 15px;
+  }
+
+  .owner-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-btn,
+  .edit-btn {
+    width: 90%;
   }
 }

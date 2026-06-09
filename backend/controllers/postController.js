@@ -22,7 +22,7 @@ const createPost = async (req, res) => {
 const getPosts = async (req, res) => {
   try {
     const posts = await Post.find()
-      .populate("user", "username email")
+      .populate("user", "username email profilePic")
       .sort({ createdAt: -1 });
 
     res.status(200).json(posts);
